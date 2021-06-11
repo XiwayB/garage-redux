@@ -10,13 +10,13 @@ import { createHistory as history } from 'history';
 // internal modules
 import '../assets/stylesheets/application.scss';
 import CarsIndex from './containers/cars_index';
+import CarsShow from './containers/cars_show';
 
 // State and Reducers
 import carsReducer from './reducers/cars_reducer';
-const garageName = prompt("What is your garage?") || `garage${Math.floor(10 + (Math.random() * 90))}`;
 
 const initialState = {
-  garage: garageName,
+  garage: "bobs",
   cars: []
 };
 
@@ -35,6 +35,7 @@ ReactDOM.render(
     <Router history={history}>
       <Switch>
         <Route path="/" component={CarsIndex} />
+        <Route path="/cars/:id" component={CarsShow} />
       </Switch>
     </Router>
   </Provider>,
